@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+:root {
+  --font-size-advice: 28px;
+  --font-size-advice-mobile: 19px;
+
+  /* colors */
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0px;
+  font-family: "Manrope";
+  background-color: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  color: var(--neon-green);
+}
+
+.attribution a {
+  color: hsl(0, 0%, 75%);
+}
+
+.boxed-container {
+  width: 550px;
+  height: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--dark-grayish-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.advice-number {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 200;
+  color: var(--neon-green);
+  text-transform: uppercase;
+}
+
+.advice {
+  /* font-size: var(--font-size-advice); */
+  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 0.9700000000000001rem + 0.6499999999999999vw, 1.75rem);
+  color: var(--light-cyan);
+  text-align: center;
+  margin-top: 0px;
+}
+
+#pattern-divider-mobile {
+  display: none;
+}
+
+.boxed-container button {
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--neon-green);
+  position: absolute;
+  top: 314px;
+}
+
+.boxed-container button:hover {
+  box-shadow: 0 1px 25px var(--neon-green);
+  cursor: pointer;
+}
+
+/* iPhone 12/13 */
+@media screen and (max-width: 720px) {
+  .boxed-container {
+    width: 90%;
+    height: 260px;
+    padding: 20px 20px 50px 20px;
+
+  }
+
+  .advice-number {
+    font-size: 11px;
+  }
+
+  .advice {
+    color: var(--light-cyan);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 90%;
+  }
+
+  #pattern-divider-desktop {
+    display: none;
+  }
+
+  #pattern-divider-mobile {
+    display: block;
+    margin: 10px 10px;
+  }
+
+  .boxed-container button {
+    width: 60px;
+    height: 60px;
+    top: 230px;
+  }

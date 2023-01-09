@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Advice generator app</title>
+</head>
+
+<body>
+
+  <div class="boxed-container">
+    <h4 class="advice-number">Article # <span id="adv-id"></span></h4>
+    <p class="advice" id="adv"></p>
+    <img id="pattern-divider-desktop" src="images/pattern-divider-desktop.svg" alt="" srcset="">
+    <img id="pattern-divider-mobile" src="images/pattern-divider-mobile.svg" alt="" srcset="">
+    <button id="refresh"><img src="images/icon-dice.svg" alt="" srcset=""></button>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/ohiosumi">@ohiosumi</a>.
+  </div>
+  <script>
+    const word = document.querySelector("#adv")
+    const wordId = document.querySelector("#adv-id")
+    const button = document.querySelector("#refresh")
+
+    const uri = "https://api.adviceslip.com/advice"
+
+
+    window.addEventListener("load", getAdvice);
+    button.addEventListener('click', getAdvice)
+
+    function getAdvice() {
+      fetch(uri)
+        .then((req) => req.json())
+        .then((res) => {
+          console.log(res)
+          if (res.slip.id != wordId.innerHTML) {
+            wordId.innerHTML = res.slip.id
+            word.innerHTML = res.slip.advice
+          }
+          else {
+            getAdvice()
+          }
+        })
+
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>
